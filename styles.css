@@ -1071,3 +1071,50 @@ h1 span {
         display: none;
     }
 }
+/* Redesign Product Cards */
+.product-card {
+    background: #ffffff;
+    border: none;
+    border-radius: 12px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+    clip-path: none;
+    overflow: hidden;
+    padding: 2rem;
+}
+.brand-figure {
+    border: none;
+    background: transparent;
+    box-shadow: none;
+    padding: 0;
+    margin-bottom: 1.5rem;
+}
+.brand-figure img {
+    border-radius: 8px;
+    border: none;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    object-fit: cover;
+}
+.product-stamp {
+    border-radius: 4px;
+}
+.hero-visual::before {
+    display: none;
+}
+.feature-card {
+    border-radius: 12px;
+    border: none;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+}
+.kit-card {
+    border-radius: 12px;
+    border: none;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.06);
+}
+.kit-card::before {
+    border-top-left-radius: 12px;
+    border-top-right-radius: 12px;
+}
+.quote-card {
+    border-radius: 12px;
+    clip-path: none;
+}
