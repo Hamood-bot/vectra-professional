@@ -5,6 +5,7 @@ if (menuToggle) {
     menuToggle.addEventListener("click", () => {
         const isOpen = document.body.classList.toggle("nav-open");
         menuToggle.setAttribute("aria-expanded", String(isOpen));
+        menuToggle.textContent = isOpen ? "Close" : "Menu";
     });
 }
 
@@ -13,6 +14,7 @@ navLinks.forEach((link) => {
         document.body.classList.remove("nav-open");
         if (menuToggle) {
             menuToggle.setAttribute("aria-expanded", "false");
+            menuToggle.textContent = "Menu";
         }
     });
 });

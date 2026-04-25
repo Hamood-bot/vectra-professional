@@ -871,22 +871,29 @@ h1 span {
     }
 
     .nav-links {
-        display: none;
         position: absolute;
         left: 0;
         right: 0;
         top: calc(100% + 0.55rem);
         padding: 0.82rem;
-        background: #f6f6f6;
-        border: 1px solid rgba(0, 0, 0, 0.17);
-        box-shadow: var(--shadow-soft);
+        background: #ffffff;
+        border: 1px solid rgba(0, 0, 0, 0.1);
+        box-shadow: 0 15px 35px rgba(0, 0, 0, 0.08);
+        border-radius: 12px;
         flex-direction: column;
         align-items: stretch;
         gap: 0.3rem;
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(-10px) scale(0.98);
+        transition: all 0.35s cubic-bezier(0.25, 1, 0.5, 1);
+        transform-origin: top center;
     }
 
     body.nav-open .nav-links {
-        display: flex;
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0) scale(1);
     }
 
     .nav-links a {
@@ -1117,4 +1124,32 @@ h1 span {
 .quote-card {
     border-radius: 12px;
     clip-path: none;
+}
+
+/* Smooth Button Transitions */
+.menu-toggle {
+    transition: background 0.3s ease, transform 0.2s ease, opacity 0.3s ease !important;
+    border-radius: 6px;
+    border: 1px solid rgba(0,0,0,0.1);
+}
+
+.menu-toggle:hover {
+    background: #f9f9f9;
+    transform: translateY(-1px);
+}
+
+.menu-toggle:active {
+    transform: translateY(1px);
+}
+
+.nav-links a {
+    border-radius: 6px;
+    transition: background-color 0.2s ease, color 0.2s ease, transform 0.2s ease !important;
+}
+
+@media (max-width: 780px) {
+    .nav-links a:hover {
+        background-color: #f6f6f6;
+        transform: translateX(4px);
+    }
 }
