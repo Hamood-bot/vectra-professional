@@ -1,0 +1,107 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact & Support | VECTRA Professional</title>
+    <meta name="description" content="Get in touch with VECTRA Professional. Submit sample requests, wholesale inquiries, and reach our sales team.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=Space+Mono:wght@400;700&family=Syne:wght@500;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="grain" aria-hidden="true"></div>
+    <header class="topbar">
+        <div class="container nav-wrap">
+            <a href="index.html" class="brand">
+                <img src="vectra.jpeg" alt="Vectra Professional logo" class="brand-logo">
+                <span class="brand-text">
+                    <strong>VECTRA</strong>
+                    <em>PROFESSIONAL STYLIST SERIES</em>
+                </span>
+            </a>
+            <button class="menu-toggle" aria-expanded="false" aria-label="Toggle menu">Menu</button>
+            <nav class="nav-links" aria-label="Primary navigation">
+                <a href="index.html#about">About Us</a>
+                <a href="why.html">Why VECTRA</a>
+                <a href="why.html#formula">Formula</a>
+                <a href="shop.html">Starter Kits</a>
+                <a href="contact.html">Contact</a>
+                <a href="contact.html" class="btn btn-small">Get Sample</a>
+            </nav>
+        </div>
+    </header>
+    <main>
+        <section class="section alt" id="faq">
+            <div class="container">
+                <div class="section-head" data-reveal="slide-up">
+                    <p class="eyebrow">FAQ</p>
+                    <h2>Everything Pro Stylists ask before switching.</h2>
+                </div>
+                <div class="faq-list" data-reveal="slide-up">
+                    <article class="faq-item">
+                        <button class="faq-question" aria-expanded="false">Is it suitable for all hair types?</button>
+                        <div class="faq-answer" hidden>
+                            <p>Yes. It performs especially well on straight to wavy textures and can be layered strategically on denser hair for controlled lift.</p>
+                        </div>
+                    </article>
+                    <article class="faq-item">
+                        <button class="faq-question" aria-expanded="false">Will it leave white marks on dark hair?</button>
+                        <div class="faq-answer" hidden>
+                            <p>The micro-fine formula is designed for clean blend-out. When applied in small taps and worked through, visible residue is minimized.</p>
+                        </div>
+                    </article>
+                    <article class="faq-item">
+                        <button class="faq-question" aria-expanded="false">Do you offer wholesale support?</button>
+                        <div class="faq-answer" hidden>
+                            <p>Yes. We support single-chair stylists, studio teams, and chain locations with tiered pricing and launch support assets.</p>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+        <section class="section contact" id="contact">
+            <div class="container contact-grid">
+                <div data-reveal="slide-up">
+                    <p class="eyebrow">Get Started</p>
+                    <h2>Bring VECTRA to your stylist setup.</h2>
+                    <p>Tell us about your shop and monthly volume. We will send the right sample or wholesale package for your team.</p>
+                </div>
+                <form class="contact-form" data-reveal="slide-up">
+                    <label>
+                        Name
+                        <input type="text" name="name" placeholder="Your full name" required>
+                    </label>
+                    <label>
+                        Shop Name
+                        <input type="text" name="shop" placeholder="Your stylist studio" required>
+                    </label>
+                    <label>
+                        Email
+                        <input type="email" name="email" placeholder="you@shop.com" required>
+                    </label>
+                    <label>
+                        Monthly Powder Units
+                        <select name="units" required>
+                            <option value="">Select range</option>
+                            <option>1-50</option>
+                            <option>51-150</option>
+                            <option>151-400</option>
+                            <option>400+</option>
+                        </select>
+                    </label>
+                    <button type="submit" class="btn">Request Quote</button>
+                </form>
+            </div>
+        </section>
+    </main>
+    <footer class="footer">
+        <div class="container footer-wrap">
+            <p>VECTRA PROFESSIONAL STYLIST SERIES</p>
+            <p>Engineered for chair-level performance.</p>
+        </div>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>
