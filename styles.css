@@ -1050,6 +1050,7 @@ p {
 body[data-page="home"] {
     --accent: #0071e3;
     --accent-hover: #0077ed;
+    background: linear-gradient(135deg, #fbfbfd 0%, #f0f4ff 50%, #fbfbfd 100%);
 }
 
 body[data-page="home"] .topbar {
@@ -1070,6 +1071,7 @@ body[data-page="home"] .hero-serial {
 body[data-page="why"] {
     --accent: #0891b2;
     --accent-hover: #0e7490;
+    background: linear-gradient(135deg, #fbfbfd 0%, #f0feff 50%, #fbfbfd 100%);
 }
 
 body[data-page="why"] .topbar {
@@ -1103,10 +1105,19 @@ body[data-page="why"] .slider-controls button:hover {
     color: #0891b2;
 }
 
+body[data-page="why"] .btn {
+    background: #0891b2;
+}
+
+body[data-page="why"] .btn:hover {
+    background: #0e7490;
+}
+
 /* SHOP PAGE - Premium Purple */
 body[data-page="shop"] {
     --accent: #7c3aed;
     --accent-hover: #6d28d9;
+    background: linear-gradient(135deg, #fbfbfd 0%, #faf5ff 50%, #fbfbfd 100%);
 }
 
 body[data-page="shop"] .topbar {
@@ -1116,14 +1127,6 @@ body[data-page="shop"] .topbar {
 body[data-page="shop"] h1 span,
 body[data-page="shop"] h2 {
     color: #7c3aed;
-}
-
-body[data-page="shop"] .section {
-    position: relative;
-}
-
-body[data-page="shop"] .section::before {
-    background: linear-gradient(90deg, transparent, rgba(124, 58, 237, 0.1), transparent);
 }
 
 body[data-page="shop"] .kit-card::before {
@@ -1140,10 +1143,19 @@ body[data-page="shop"] .badge {
     background: linear-gradient(135deg, #7c3aed, #a78bfa);
 }
 
+body[data-page="shop"] .btn {
+    background: #7c3aed;
+}
+
+body[data-page="shop"] .btn:hover {
+    background: #6d28d9;
+}
+
 /* CONTACT PAGE - Welcoming Green */
 body[data-page="contact"] {
     --accent: #10b981;
     --accent-hover: #059669;
+    background: linear-gradient(135deg, #fbfbfd 0%, #f0fdf4 50%, #fbfbfd 100%);
 }
 
 body[data-page="contact"] .topbar {
@@ -1176,74 +1188,10 @@ body[data-page="contact"] .contact-form select:focus {
     box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.1);
 }
 
-body[data-page="contact"] .contact-form button {
+body[data-page="contact"] .btn {
     background: #10b981;
 }
 
-body[data-page="contact"] .contact-form button:hover {
-    background: #059669;
-}
-
-/* Unique Design Elements - Page Dividers */
-body[data-page="home"] .section:nth-child(2)::after,
-body[data-page="why"] .section:nth-child(2)::after,
-body[data-page="shop"] .section:nth-child(2)::after,
-body[data-page="contact"] .section:nth-child(2)::after {
-    content: "";
-    position: absolute;
-    bottom: -1px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 80%;
-    height: 1px;
-    background: linear-gradient(90deg, transparent, currentColor, transparent);
-    opacity: 0.1;
-}
-
-/* Page-specific backgrounds for visual distinction */
-body[data-page="home"] {
-    background: linear-gradient(135deg, #fbfbfd 0%, #f0f4ff 50%, #fbfbfd 100%);
-}
-
-body[data-page="why"] {
-    background: linear-gradient(135deg, #fbfbfd 0%, #f0feff 50%, #fbfbfd 100%);
-}
-
-body[data-page="shop"] {
-    background: linear-gradient(135deg, #fbfbfd 0%, #faf5ff 50%, #fbfbfd 100%);
-}
-
-body[data-page="contact"] {
-    background: linear-gradient(135deg, #fbfbfd 0%, #f0fdf4 50%, #fbfbfd 100%);
-}
-
-/* Accent color propagation for all theme elements */
-body[data-page="why"] .btn,
-body[data-page="shop"] .btn,
-body[data-page="contact"] .btn {
-    background: var(--accent);
-}
-
-body[data-page="why"] .btn:hover,
-body[data-page="shop"] .btn:hover,
 body[data-page="contact"] .btn:hover {
-    background: var(--accent-hover);
-}
-
-body[data-page="why"] .btn-small,
-body[data-page="shop"] .btn-small,
-body[data-page="contact"] .btn-small {
-    background: var(--accent);
-}
-
-body[data-page="why"] .nav-links a.btn,
-body[data-page="shop"] .nav-links a.btn,
-body[data-page="contact"] .nav-links a.btn {
-    background: var(--accent);
-}
-
-body[data-page="why"] .nav-links a.btn:hover,
-body[data-page="shop"] .nav-links a.btn:hover,
-body[data-page="contact"] .nav-links a.btn:hover {
-    background: var(--accent-hover);
+    background: #059669;
 }
