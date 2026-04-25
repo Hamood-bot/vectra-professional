@@ -1043,3 +1043,207 @@ p {
         scroll-behavior: auto;
     }
 }
+
+/* ===== UNIQUE PAGE THEMES ===== */
+
+/* HOME PAGE - Professional Blue */
+body[data-page="home"] {
+    --accent: #0071e3;
+    --accent-hover: #0077ed;
+}
+
+body[data-page="home"] .topbar {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.6), rgba(0, 113, 227, 0.04));
+}
+
+body[data-page="home"] h1 span {
+    color: #0071e3;
+}
+
+body[data-page="home"] .hero-serial {
+    background: rgba(0, 113, 227, 0.1);
+    border-color: rgba(0, 113, 227, 0.2);
+    color: #0071e3;
+}
+
+/* WHY VECTRA PAGE - Technical Teal */
+body[data-page="why"] {
+    --accent: #0891b2;
+    --accent-hover: #0e7490;
+}
+
+body[data-page="why"] .topbar {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.6), rgba(8, 145, 178, 0.04));
+}
+
+body[data-page="why"] h1 span,
+body[data-page="why"] h2 {
+    color: #0891b2;
+}
+
+body[data-page="why"] .feature-card {
+    border-left: 3px solid #0891b2;
+}
+
+body[data-page="why"] .feature-card:hover {
+    border-color: #0891b2;
+    background: rgba(8, 145, 178, 0.02);
+}
+
+body[data-page="why"] .stack > div {
+    border-left-color: #0891b2;
+}
+
+body[data-page="why"] .stack > div:hover {
+    background: rgba(8, 145, 178, 0.05);
+}
+
+body[data-page="why"] .slider-controls button:hover {
+    border-color: #0891b2;
+    color: #0891b2;
+}
+
+/* SHOP PAGE - Premium Purple */
+body[data-page="shop"] {
+    --accent: #7c3aed;
+    --accent-hover: #6d28d9;
+}
+
+body[data-page="shop"] .topbar {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.6), rgba(124, 58, 237, 0.04));
+}
+
+body[data-page="shop"] h1 span,
+body[data-page="shop"] h2 {
+    color: #7c3aed;
+}
+
+body[data-page="shop"] .section {
+    position: relative;
+}
+
+body[data-page="shop"] .section::before {
+    background: linear-gradient(90deg, transparent, rgba(124, 58, 237, 0.1), transparent);
+}
+
+body[data-page="shop"] .kit-card::before {
+    background: linear-gradient(90deg, #7c3aed, #a78bfa);
+}
+
+body[data-page="shop"] .kit-card.featured {
+    border-color: #7c3aed;
+    background: rgba(124, 58, 237, 0.03);
+    box-shadow: 0 0 30px rgba(124, 58, 237, 0.1);
+}
+
+body[data-page="shop"] .badge {
+    background: linear-gradient(135deg, #7c3aed, #a78bfa);
+}
+
+/* CONTACT PAGE - Welcoming Green */
+body[data-page="contact"] {
+    --accent: #10b981;
+    --accent-hover: #059669;
+}
+
+body[data-page="contact"] .topbar {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.6), rgba(16, 185, 129, 0.04));
+}
+
+body[data-page="contact"] h1 span,
+body[data-page="contact"] h2 {
+    color: #10b981;
+}
+
+body[data-page="contact"] .faq-question {
+    border-left: 3px solid transparent;
+    transition: all 0.2s ease;
+}
+
+body[data-page="contact"] .faq-question:hover {
+    border-left-color: #10b981;
+    background: rgba(16, 185, 129, 0.02);
+}
+
+body[data-page="contact"] .faq-question[aria-expanded="true"] {
+    border-left-color: #10b981;
+    background: rgba(16, 185, 129, 0.03);
+}
+
+body[data-page="contact"] .contact-form input:focus,
+body[data-page="contact"] .contact-form select:focus {
+    border-color: #10b981;
+    box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.1);
+}
+
+body[data-page="contact"] .contact-form button {
+    background: #10b981;
+}
+
+body[data-page="contact"] .contact-form button:hover {
+    background: #059669;
+}
+
+/* Unique Design Elements - Page Dividers */
+body[data-page="home"] .section:nth-child(2)::after,
+body[data-page="why"] .section:nth-child(2)::after,
+body[data-page="shop"] .section:nth-child(2)::after,
+body[data-page="contact"] .section:nth-child(2)::after {
+    content: "";
+    position: absolute;
+    bottom: -1px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80%;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, currentColor, transparent);
+    opacity: 0.1;
+}
+
+/* Page-specific backgrounds for visual distinction */
+body[data-page="home"] {
+    background: linear-gradient(135deg, #fbfbfd 0%, #f0f4ff 50%, #fbfbfd 100%);
+}
+
+body[data-page="why"] {
+    background: linear-gradient(135deg, #fbfbfd 0%, #f0feff 50%, #fbfbfd 100%);
+}
+
+body[data-page="shop"] {
+    background: linear-gradient(135deg, #fbfbfd 0%, #faf5ff 50%, #fbfbfd 100%);
+}
+
+body[data-page="contact"] {
+    background: linear-gradient(135deg, #fbfbfd 0%, #f0fdf4 50%, #fbfbfd 100%);
+}
+
+/* Accent color propagation for all theme elements */
+body[data-page="why"] .btn,
+body[data-page="shop"] .btn,
+body[data-page="contact"] .btn {
+    background: var(--accent);
+}
+
+body[data-page="why"] .btn:hover,
+body[data-page="shop"] .btn:hover,
+body[data-page="contact"] .btn:hover {
+    background: var(--accent-hover);
+}
+
+body[data-page="why"] .btn-small,
+body[data-page="shop"] .btn-small,
+body[data-page="contact"] .btn-small {
+    background: var(--accent);
+}
+
+body[data-page="why"] .nav-links a.btn,
+body[data-page="shop"] .nav-links a.btn,
+body[data-page="contact"] .nav-links a.btn {
+    background: var(--accent);
+}
+
+body[data-page="why"] .nav-links a.btn:hover,
+body[data-page="shop"] .nav-links a.btn:hover,
+body[data-page="contact"] .nav-links a.btn:hover {
+    background: var(--accent-hover);
+}
