@@ -1,0 +1,24 @@
+{
+  "name": "yossefzamar",
+  "version": "1.0.0",
+  "main": "script.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "live-server"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Hamood-bot/vectra-professional.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Hamood-bot/vectra-professional/issues"
+  },
+  "homepage": "https://github.com/Hamood-bot/vectra-professional#readme",
+  "description": "",
+  "devDependencies": {
+    "live-server": "^1.2.2"
+  }
+}
