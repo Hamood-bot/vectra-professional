@@ -121,3 +121,34 @@ if (stickyCta && heroSection) {
 
     ctaObserver.observe(heroSection);
 }
+
+// Minimalist Quote Slider Logic
+const slides = document.querySelectorAll('.slide');
+const prevBtn = document.querySelector('.prev-slide');
+const nextBtn = document.querySelector('.next-slide');
+let currentSlide = 0;
+
+if (slides.length > 0) {
+    const updateSlider = () => {
+        slides.forEach((slide, index) => {
+            slide.classList.remove('active');
+            if (index === currentSlide) slide.classList.add('active');
+        });
+    };
+
+    nextBtn?.addEventListener('click', () => {
+        currentSlide = (currentSlide + 1) % slides.length;
+        updateSlider();
+    });
+
+    prevBtn?.addEventListener('click', () => {
+        currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+        updateSlider();
+    });
+    
+    // Auto rotate flawlessly
+    setInterval(() => {
+        currentSlide = (currentSlide + 1) % slides.length;
+        updateSlider();
+    }, 6000);
+}
