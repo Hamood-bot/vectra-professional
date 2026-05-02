@@ -32,6 +32,21 @@ document.addEventListener("DOMContentLoaded", () => {
     if (mobileMenuBtn && navMenu) {
         mobileMenuBtn.addEventListener("click", () => {
             navMenu.classList.toggle("active");
+            
+            // Prevent background page from scrolling when menu is open
+            if (navMenu.classList.contains("active")) {
+                document.body.style.overflow = "hidden";
+            } else {
+                document.body.style.overflow = "";
+            }
+        });
+
+        // Close menu if a link is clicked inside it
+        navMenu.querySelectorAll('a').forEach(link => {
+            link.addEventListener("click", () => {
+                navMenu.classList.remove("active");
+                document.body.style.overflow = "";
+            });
         });
     }
 
