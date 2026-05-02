@@ -12,27 +12,33 @@
 </head>
 <body data-page="why">
     <div class="grain" aria-hidden="true"></div>
-    <header class="topbar">
-        <div class="container nav-wrap">
-            <a href="index.html" class="brand">
-                <img src="vectra.jpeg" alt="Vectra Professional logo" class="brand-logo">
-                <span class="brand-text">
-                    <strong>VECTRA</strong>
-                    <em>PROFESSIONAL STYLIST SERIES</em>
-                </span>
-            </a>
-            <button class="menu-toggle" aria-expanded="false" aria-label="Toggle menu">Menu</button>
-            <nav class="nav-links" aria-label="Primary navigation">
-                <a href="index.html#about">About Us</a>
-                <a href="why.html">Why VECTRA</a>
-                <a href="why.html#formula">Formula</a>
-                <a href="shop.html">Starter Kits</a>
-                <a href="contact.html">Contact</a>
-                <a href="contact.html" class="btn btn-small">Get Sample</a>
-            </nav>
+        <!-- Global Navigation -->
+    <nav class="global-nav">
+        <div class="nav-content">
+            <a href="index.html" class="logo">VECTRA</a>
+            <ul class="nav-menu">
+                <li><a href="index.html">Overview</a></li>
+                <li><a href="why.html">Tech Specs</a></li>
+                <li><a href="shop.html">Starter Kits</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+            <button class="mobile-menu-btn">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12h18M3 6h18M3 18h18"/></svg>
+            </button>
         </div>
-    </header>
-    <main>
+    </nav>
+
+    <!-- Local Navigation (Sticky) -->
+    <nav class="local-nav reveal">
+        <div class="local-nav-content">
+            <div class="local-title">Vectra Pro</div>
+            <div class="local-actions">
+                <span class="local-price">From $24</span>
+                <a href="shop.html" class="btn btn-buy">Buy</a>
+            </div>
+        </div>
+    </nav>
+    <main style="padding-top: 100px;">
         <section class="section" id="why">
             <div class="container">
                 <div class="section-head" data-reveal="slide-up">
@@ -99,20 +105,23 @@
             </div>
         </section>
     </main>
-    <footer class="footer">
-        <div class="container footer-wrap">
-            <p>VECTRA PROFESSIONAL STYLIST SERIES</p>
-            <p>Engineered for chair-level performance.</p>
+        <footer class="global-footer reveal">
+        <div class="footer-content">
+            <div class="footer-bottom">
+                <p>Copyright &copy; 2026 VECTRA Professional. All rights reserved.</p>
+                <div class="footer-legal-links">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Use</a>
+                </div>
+            </div>
         </div>
     </footer>
 
-    <div class="sticky-cta">
-        <div class="container container-cta">
-            <span>Explore Starter Kits</span>
-            <a href="shop.html" class="btn btn-small">Shop Now</a>
-        </div>
+    
     </div>
 
     <script src="script.js"></script>
 </body>
 </html>
+
+

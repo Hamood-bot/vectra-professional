@@ -1,154 +1,37 @@
-const menuToggle = document.querySelector(".menu-toggle");
-const navLinks = document.querySelectorAll(".nav-links a");
+document.addEventListener("DOMContentLoaded", () => {
+    // 1. Reveal Animations on Scroll
+    const revealElements = document.querySelectorAll(".reveal");
 
-if (menuToggle) {
-    menuToggle.addEventListener("click", () => {
-        const isOpen = document.body.classList.toggle("nav-open");
-        menuToggle.setAttribute("aria-expanded", String(isOpen));
-        menuToggle.textContent = isOpen ? "Close" : "Menu";
-    });
-}
-
-navLinks.forEach((link) => {
-    link.addEventListener("click", () => {
-        document.body.classList.remove("nav-open");
-        if (menuToggle) {
-            menuToggle.setAttribute("aria-expanded", "false");
-            menuToggle.textContent = "Menu";
-        }
-    });
-});
-
-const revealElements = document.querySelectorAll("[data-reveal]");
-const metricValues = document.querySelectorAll(".metric-value");
-
-const animateMetric = (element) => {
-    const target = Number(element.dataset.target || 0);
-    const duration = 1200;
-    const start = performance.now();
-
-    const frame = (time) => {
-        const progress = Math.min((time - start) / duration, 1);
-        const eased = 1 - Math.pow(1 - progress, 3);
-        element.textContent = String(Math.round(target * eased));
-
-        if (progress < 1) {
-            requestAnimationFrame(frame);
-        }
+    const revealOptions = {
+        threshold: 0.15,
+        rootMargin: "0px 0px -50px 0px"
     };
 
-    requestAnimationFrame(frame);
-};
-
-const observer = new IntersectionObserver(
-    (entries) => {
-        entries.forEach((entry) => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add("is-visible");
-                observer.unobserve(entry.target);
-            }
-        });
-    },
-    { threshold: 0.18 }
-);
-
-revealElements.forEach((el, index) => {
-    el.style.transitionDelay = `${Math.min(index * 60, 280)}ms`;
-    observer.observe(el);
-});
-
-const metricsObserver = new IntersectionObserver(
-    (entries) => {
-        entries.forEach((entry) => {
-            if (entry.isIntersecting) {
-                animateMetric(entry.target);
-                metricsObserver.unobserve(entry.target);
-            }
-        });
-    },
-    { threshold: 0.7 }
-);
-
-metricValues.forEach((metric) => metricsObserver.observe(metric));
-
-const faqButtons = document.querySelectorAll(".faq-question");
-
-faqButtons.forEach((button) => {
-    button.addEventListener("click", () => {
-        const expanded = button.getAttribute("aria-expanded") === "true";
-        const answer = button.nextElementSibling;
-
-        faqButtons.forEach((otherButton) => {
-            otherButton.setAttribute("aria-expanded", "false");
-            const otherAnswer = otherButton.nextElementSibling;
-            if (otherAnswer) {
-                otherAnswer.hidden = true;
-            }
-        });
-
-        button.setAttribute("aria-expanded", String(!expanded));
-        if (answer) {
-            answer.hidden = expanded;
-        }
-    });
-});
-
-const contactForm = document.querySelector(".contact-form");
-
-if (contactForm) {
-    contactForm.addEventListener("submit", (event) => {
-        event.preventDefault();
-        const submitButton = contactForm.querySelector('button[type="submit"]');
-        if (submitButton) {
-            submitButton.textContent = "Request Sent";
-            submitButton.disabled = true;
-        }
-    });
-}
-const stickyCta = document.querySelector('.sticky-cta');
-const heroSection = document.querySelector('.hero');
-
-if (stickyCta && heroSection) {
-    const ctaObserver = new IntersectionObserver((entries) => {
+    const revealOnScroll = new IntersectionObserver(function(entries, observer) {
         entries.forEach(entry => {
-            if (!entry.isIntersecting) {
-                stickyCta.classList.add('visible');
-            } else {
-                stickyCta.classList.remove('visible');
-            }
+            if (!entry.isIntersecting) return;
+            entry.target.classList.add("is-visible");
+            observer.unobserve(entry.target);
         });
-    }, { threshold: 0.1 });
+    }, revealOptions);
 
-    ctaObserver.observe(heroSection);
-}
-
-// Minimalist Quote Slider Logic
-const slides = document.querySelectorAll('.slide');
-const prevBtn = document.querySelector('.prev-slide');
-const nextBtn = document.querySelector('.next-slide');
-let currentSlide = 0;
-
-if (slides.length > 0) {
-    const updateSlider = () => {
-        slides.forEach((slide, index) => {
-            slide.classList.remove('active');
-            if (index === currentSlide) slide.classList.add('active');
-        });
-    };
-
-    nextBtn?.addEventListener('click', () => {
-        currentSlide = (currentSlide + 1) % slides.length;
-        updateSlider();
+    revealElements.forEach(el => {
+        revealOnScroll.observe(el);
     });
 
-    prevBtn?.addEventListener('click', () => {
-        currentSlide = (currentSlide - 1 + slides.length) % slides.length;
-        updateSlider();
-    });
-    
-    // Auto rotate flawlessly
-    setInterval(() => {
-        currentSlide = (currentSlide + 1) % slides.length;
-        updateSlider();
-    }, 6000);
-}
+    // 2. Trigger initially visible elements specifically for the hero section
+    setTimeout(() => {
+        const heroReveals = document.querySelectorAll(".hero-section .reveal");
+        heroReveals.forEach(el => el.classList.add("is-visible"));
+    }, 100);
+
+    // 3. Mobile Navigation Toggle
+    const mobileMenuBtn = document.querySelector(".mobile-menu-btn");
+    const navMenu = document.querySelector(".nav-menu");
+
+    if (mobileMenuBtn && navMenu) {
+        mobileMenuBtn.addEventListener("click", () => {
+            navMenu.classList.toggle("active");
+        });
+    }
+});
