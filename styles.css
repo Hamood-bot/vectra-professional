@@ -30,6 +30,21 @@ html {
 
 body {
     overflow-x: hidden;
+    animation: fadeInPage 0.5s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+}
+
+body.page-transition-out {
+    animation: fadeOutPage 0.4s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+@keyframes fadeInPage {
+    0% { opacity: 0; transform: translateY(12px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeOutPage {
+    0% { opacity: 1; transform: translateY(0); }
+    100% { opacity: 0; transform: translateY(-8px); }
 }
 
 /* Animations */

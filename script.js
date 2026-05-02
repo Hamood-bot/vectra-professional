@@ -34,4 +34,31 @@ document.addEventListener("DOMContentLoaded", () => {
             navMenu.classList.toggle("active");
         });
     }
+
+    // 4. Smooth Page Transitions
+    const links = document.querySelectorAll('a[href]');
+    
+    links.forEach(link => {
+        link.addEventListener('click', (e) => {
+            const href = link.getAttribute('href');
+            
+            // Check if link points to another page on the same site and doesn't just scroll to a hash
+            if (
+                href && 
+                !href.startsWith('#') && 
+                link.target !== '_blank' &&
+                (href.startsWith('/') || !href.startsWith('http'))
+            ) {
+                e.preventDefault(); // Stop immediate navigation
+                
+                // Trigger the fade-out animation
+                document.body.classList.add('page-transition-out');
+                
+                // Wait for the animation to finish, then navigate
+                setTimeout(() => {
+                    window.location.href = href;
+                }, 350); // Matches the 0.4s fade out easing
+            }
+        });
+    });
 });
