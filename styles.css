@@ -395,10 +395,9 @@ body.page-transition-out {
         left: 0;
         right: 0;
         bottom: 0;
-        background: rgba(255, 255, 255, 0.1);
-        backdrop-filter: blur(28px) saturate(200%);
-        -webkit-backdrop-filter: blur(28px) saturate(200%);
-        border-top: 1px solid rgba(0, 0, 0, 0.08);
+        background: rgba(255, 255, 255, 0.03);
+        backdrop-filter: blur(32px) saturate(220%);
+        -webkit-backdrop-filter: blur(32px) saturate(220%);
         padding: 40px 30px;
         height: auto;
         align-items: flex-start;
@@ -408,6 +407,7 @@ body.page-transition-out {
         transform: translateY(-15px);
         transition: opacity 0.35s cubic-bezier(0.16, 1, 0.3, 1), transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.35s;
         z-index: 9998;
+        overflow-y: auto;
     }
     .nav-menu.active {
         opacity: 1;

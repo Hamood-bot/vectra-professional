@@ -31,23 +31,14 @@ document.addEventListener("DOMContentLoaded", () => {
 
     if (mobileMenuBtn && navMenu) {
         mobileMenuBtn.addEventListener("click", () => {
-            navMenu.classList.toggle("active");
+            const isActive = navMenu.classList.contains("active");
             
-            // Prevent background page from scrolling when menu is open without layout shift
-            const scrollbarWidth = window.innerWidth - document.documentElement.clientWidth;
-            const globalNav = document.querySelector('.global-nav');
-            const localNav = document.querySelector('.local-nav');
-            
-            if (navMenu.classList.contains("active")) {
-                document.body.style.overflow = "hidden";
-                document.body.style.paddingRight = `${scrollbarWidth}px`;
-                if (globalNav) globalNav.style.paddingRight = `${scrollbarWidth}px`;
-                if (localNav) localNav.style.paddingRight = `${scrollbarWidth}px`;
+            if (!isActive) {
+                navMenu.classList.add("active");
+                document.documentElement.style.overflow = "hidden";
             } else {
-                document.body.style.overflow = "";
-                document.body.style.paddingRight = "";
-                if (globalNav) globalNav.style.paddingRight = "";
-                if (localNav) localNav.style.paddingRight = "";
+                navMenu.classList.remove("active");
+                document.documentElement.style.overflow = "";
             }
         });
 
@@ -55,12 +46,7 @@ document.addEventListener("DOMContentLoaded", () => {
         navMenu.querySelectorAll('a').forEach(link => {
             link.addEventListener("click", () => {
                 navMenu.classList.remove("active");
-                document.body.style.overflow = "";
-                document.body.style.paddingRight = "";
-                const globalNav = document.querySelector('.global-nav');
-                const localNav = document.querySelector('.local-nav');
-                if (globalNav) globalNav.style.paddingRight = "";
-                if (localNav) localNav.style.paddingRight = "";
+                document.documentElement.style.overflow = "";
             });
         });
     }
