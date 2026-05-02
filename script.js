@@ -33,11 +33,21 @@ document.addEventListener("DOMContentLoaded", () => {
         mobileMenuBtn.addEventListener("click", () => {
             navMenu.classList.toggle("active");
             
-            // Prevent background page from scrolling when menu is open
+            // Prevent background page from scrolling when menu is open without layout shift
+            const scrollbarWidth = window.innerWidth - document.documentElement.clientWidth;
+            const globalNav = document.querySelector('.global-nav');
+            const localNav = document.querySelector('.local-nav');
+            
             if (navMenu.classList.contains("active")) {
                 document.body.style.overflow = "hidden";
+                document.body.style.paddingRight = `${scrollbarWidth}px`;
+                if (globalNav) globalNav.style.paddingRight = `${scrollbarWidth}px`;
+                if (localNav) localNav.style.paddingRight = `${scrollbarWidth}px`;
             } else {
                 document.body.style.overflow = "";
+                document.body.style.paddingRight = "";
+                if (globalNav) globalNav.style.paddingRight = "";
+                if (localNav) localNav.style.paddingRight = "";
             }
         });
 
@@ -46,6 +56,11 @@ document.addEventListener("DOMContentLoaded", () => {
             link.addEventListener("click", () => {
                 navMenu.classList.remove("active");
                 document.body.style.overflow = "";
+                document.body.style.paddingRight = "";
+                const globalNav = document.querySelector('.global-nav');
+                const localNav = document.querySelector('.local-nav');
+                if (globalNav) globalNav.style.paddingRight = "";
+                if (localNav) localNav.style.paddingRight = "";
             });
         });
     }
